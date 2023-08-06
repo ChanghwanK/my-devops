@@ -1,0 +1,13 @@
+# main.yaml
+---
+- name: "Init Sh"
+  hosts: all
+  become: true
+  tasks:
+    - name: "Copy test.sh to remote"
+      copy:
+        src: "test.sh"  # 로컬 호스트에 있는 test.sh 스크립트를 복사
+        dest: "/tmp/init.sh"  # 리모트 호스트에 저장될 경로를 지정
+
+    - name: "Execute test.sh"
+      shell: "/tmp/init.sh"  # 복사한 init.sh 스크립트를 실행

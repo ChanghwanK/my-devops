@@ -1,0 +1,30 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "ap-northeast-2",
+      "source_ami_filter": {
+        "filters": {
+          "name": "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*",
+          "virtualization-type": "hvm",
+          "root-device-type": "ebs"
+        },
+        "owners": ["099720109477"],
+        "most_recent": true
+      },
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "demo-ami-01",
+      "run_tags": {
+        "Name": "demo-ami-01"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "/Users/levi/Desktop/workspace/devops/demo-ami-build/packer/playbook.yml",
+      "extra_arguments": ["--become-method=sudo"]
+    }
+  ]
+}

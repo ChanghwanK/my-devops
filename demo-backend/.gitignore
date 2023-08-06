@@ -1,0 +1,28 @@
+### terraform 
+# General
+.terraform
+*.tfstate
+*.tfstate.backup
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.crash.log
+*.tfplan
+
+# Plugin files
+*.lock.hcl
+
+# Exclude any sensitive data you don't want to be committed
+# .tfvars files are commonly used to store variable values and may contain sensitive data
+# example.tfvars
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+
+### idea
+.vscode
+.idea

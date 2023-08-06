@@ -1,0 +1,7 @@
+---
+
+- name: "Init Sh"
+  hosts: ubuntu
+  tasks:
+    - name: "task 1 start sh"
+      script: init.sh
